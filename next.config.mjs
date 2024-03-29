@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/rovic_portfolio",
+  basePath: "/rovic_portfolio/my-projects",
   output: "export",
   reactStrictMode: true,
 };

@@ -1,0 +1,36 @@
+.aside-container {
+  background-color: var(--secondary);
+  height: 100dvh;
+
+  .logo-img {
+    aspect-ratio: 1/1;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .profile-wrapper {
+    padding: 10px;
+    border-radius: 50%;
+    width: clamp(150px, 70%, 300px);
+    border-top: 10px solid var(--primary);
+    border-bottom: 10px solid var(--primary);
+    border-left: 10px solid var(--secondary);
+    border-right: 10px solid var(--secondary);
+    transform: rotate(-45deg);
+
+    .profile-img {
+      transform: rotate(45deg);
+    }
+  }
+
+  .icon-container {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

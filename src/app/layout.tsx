@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "../theme";
+import Aside from "@/components/Aside/aside";
+import { AOSInit } from "@/aos";
+import "animate.css";
+import Head from "next/head"; // Import the Head component
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +23,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+      </head>
+      <body className={inter.className}>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <div className="flex flex-row">
+              <aside className="sm:hidden md:hidden lg:inline">
+                <Aside></Aside>
+              </aside>
+              <main className="md:w-full sm:w-full lg:ms-80 xl:ms-80">
+                {children}
+              </main>
+            </div>
+          </ThemeProvider>
+        </AppRouterCacheProvider>
+      </body>
     </html>
   );
 }

@@ -1,0 +1,54 @@
+.project-list-container li {
+  background-color: var(--secondary);
+  margin-bottom: 20px;
+  padding: 20px;
+  color: white;
+  width: clamp(300px, 70%, 90%);
+  border-top: 1px solid var(--accent);
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &.active {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.swiper-container {
+  height: 30dvh;
+}
+
+.project-list-container {
+  background-color: var(--secondary);
+  height: 58dvh;
+  overflow: auto;
+}
+
+.pages-wrapper {
+  overflow: hidden;
+}
+
+.pages-wrapper .header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  max-height: 7dvh;
+
+  i {
+    justify-self: start !important;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--primary);
+      transform: scale(1.1);
+    }
+  }
+
+  h1 {
+    justify-self: center;
+    margin: auto;
+  }
+}

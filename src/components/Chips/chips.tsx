@@ -18,7 +18,7 @@ export default function Chips({ title, image, bgcolor, border }: ChipsProps) {
       style={{ border: borderStyle, backgroundColor: backgroundColor }}
     >
       <Image
-        src={`/images/chips/${image}`}
+        src={`/rovic_portfolio/images/chips/${image}`}
         className="chips-img"
         alt="Example Image"
         width={25}

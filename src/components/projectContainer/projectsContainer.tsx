@@ -22,7 +22,7 @@ export default function ProjectsContainer({
     <div className="project-card flex flex-col">
       <div className="project-img-container">
         <Image
-          src={`/images/projects/${images[0].img}`}
+          src={`/rovic_portfolio/images/projects/${images[0].img}`}
           className="project-img"
           alt="Example Image"
           width={1920}

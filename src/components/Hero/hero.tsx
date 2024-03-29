@@ -7,12 +7,13 @@ export default function Hero() {
     <section className="w-100">
       <div className="hero-img-container w-100 animate__animated animate__fadeInDown mb-10">
         <Image
-          src={require("/images/hero.png")}
+          src="/images/hero.png"
           className="hero-img w-100"
           alt="Example Image"
           width={800}
           height={600}
           priority
+          unoptimized
         />
         <div className="slogan">
           <h1 className="main-title md:text-4xl sm:text-xl fc-accent text-center text-nowrap mb-4 font-semibold tracking-wide glow">

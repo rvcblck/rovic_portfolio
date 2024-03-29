@@ -29,7 +29,7 @@ export default function SwiperComponent({ selectedData }: any) {
             <SwiperSlide key={index}>
               <div className="slider-image-container">
                 <Image
-                  src={`/images/projects/${image.img}`}
+                  src={`/rovic_portfolio/images/projects/${image.img}`}
                   alt="img"
                   width={1980}
                   height={1080}

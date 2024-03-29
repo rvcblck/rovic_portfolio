@@ -17,7 +17,7 @@ export default function SmallChips({
   return (
     <div className="chip-container flex flex-row gap-4 rounded sm:py-1 sm:px-8 md:py-2 md:px-10 items-center">
       <Image
-        src={`/images/chips/${image}`}
+        src={`/rovic_portfolio/images/chips/${image}`}
         className="chips-img"
         alt="Example Image"
         width={20}

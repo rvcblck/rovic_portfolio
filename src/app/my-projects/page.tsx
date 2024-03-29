@@ -3,7 +3,7 @@ import SwiperComponent from "@/components/SwiperComponent/swiperComponent";
 import Image from "next/image";
 import projectList from "../../../public/projects";
 import "./style.scss";
-import SmallChips from "@/components/Chips copy/chips";
+import SmallChips from "@/components/SmallChips/chips";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";

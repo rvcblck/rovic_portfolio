@@ -65,7 +65,7 @@ export default function TechStack() {
           <div className="mb-20">
             <div className="flex flex-row items-center justify-center mb-5">
               <Image
-                src="/images/icons/frontend.svg"
+                src="/rovic_portfolio/images/icons/frontend.svg"
                 className="profile-img me-6"
                 alt="Example Image"
                 width={20}
@@ -92,7 +92,7 @@ export default function TechStack() {
           <div className="mb-20">
             <div className="flex flex-row items-center justify-center mb-5">
               <Image
-                src="/images/icons/backend.svg"
+                src="/rovic_portfolio/images/icons/backend.svg"
                 className="profile-img me-6"
                 alt="Example Image"
                 width={20}
@@ -120,7 +120,7 @@ export default function TechStack() {
           <div className="mb-20">
             <div className="flex flex-row items-center justify-center mb-5">
               <Image
-                src="/images/icons/database.svg"
+                src="/rovic_portfolio/images/icons/database.svg"
                 className="profile-img me-6"
                 alt="Example Image"
                 width={20}

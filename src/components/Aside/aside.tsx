@@ -6,7 +6,7 @@ export default function Aside() {
   return (
     <div className="aside-container flex flex-col items-center animate__animated animate__fadeInLeft">
       <Image
-        src="/images/logo.svg"
+        src="/rovic_portfolio/images/logo.svg"
         className="logo-img mb-20"
         alt="Example Image"
         width={200}
@@ -15,7 +15,7 @@ export default function Aside() {
 
       <div className="profile-wrapper mb-8">
         <Image
-          src="/images/profile.svg"
+          src="/rovic_portfolio/images/profile.svg"
           className="profile-img"
           alt="Example Image"
           width={200}
@@ -35,7 +35,7 @@ export default function Aside() {
         <a href="https://www.facebook.com/rovic.killua16" target="_blank">
           <div className="icon-container bg-white p-2 rounded-full flex justify-center items-center">
             <Image
-              src="/images/icons/fb.svg"
+              src="/rovic_portfolio/images/icons/fb.svg"
               className="profile-img"
               alt="Example Image"
               width={25}
@@ -46,7 +46,7 @@ export default function Aside() {
         <a href="mailto:deleon.rovic.g.5570@gmail.com" target="_blank">
           <div className="icon-container aspect-square bg-white p-2 rounded-full flex justify-center items-center">
             <Image
-              src="/images/icons/gmail.svg"
+              src="/rovic_portfolio/images/icons/gmail.svg"
               className="profile-img"
               alt="Example Image"
               width={25}
@@ -60,7 +60,7 @@ export default function Aside() {
         >
           <div className="icon-container bg-white p-2 rounded-full flex justify-center items-center">
             <Image
-              src="/images/icons/linkedIn.svg"
+              src="/rovic_portfolio/images/icons/linkedIn.svg"
               className="profile-img"
               alt="Example Image"
               width={25}
@@ -71,7 +71,7 @@ export default function Aside() {
         <a href="https://m.me/rovic.killua16" target="_blank">
           <div className="icon-container bg-white p-2 rounded-full flex justify-center items-center">
             <Image
-              src="/images/icons/messenger.svg"
+              src="/rovic_portfolio/images/icons/messenger.svg"
               className="profile-img"
               alt="Example Image"
               width={25}

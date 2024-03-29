@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="w-100">
       <div className="hero-img-container w-100 animate__animated animate__fadeInDown mb-10">
         <Image
-          src="/images/hero.png"
+          src="/rovic_portfolio/images/hero.png"
           className="hero-img w-100"
           alt="Example Image"
           width={800}

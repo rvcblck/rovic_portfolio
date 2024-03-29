@@ -83,7 +83,7 @@ export default function Experience() {
           </div>
 
           <Image
-            src={`/images/blob2.png`}
+            src={`/rovic_portfolio/images/blob2.png`}
             className="blob2"
             alt="Example Image"
             width={1920}

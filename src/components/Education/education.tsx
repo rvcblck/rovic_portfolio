@@ -68,7 +68,7 @@ export default function Education() {
           </ul>
 
           <Image
-            src={`/images/blob.png`}
+            src={`/rovic_portfolio/images/blob.png`}
             className="blob"
             alt="Example Image"
             width={1920}

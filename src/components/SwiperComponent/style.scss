@@ -8,6 +8,11 @@
     object-fit: contain;
     object-position: center;
   }
+}
 
-  
+.swiper-indicator {
+  .fc-primary,
+  .fc-secondary {
+    transition: color 0.3s ease; /* Adjust the duration and easing as needed */
+  }
 }

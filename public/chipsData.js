@@ -66,9 +66,12 @@ const frontend = [
     bgcolor: "rgba(0, 123, 205, 0.5)", // 50% opacity
     border: "007BCD",
   },
+  {
+    title: "Wordpress",
+    image: "wordpress.png",
+    bgcolor: "rgba(0, 141, 177,0.5)", // 50% opacity
+    border: "008db1",
+  },
 ];
 
-
-
 export default frontend;
-

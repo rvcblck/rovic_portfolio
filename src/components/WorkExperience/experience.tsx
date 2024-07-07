@@ -58,7 +58,12 @@ export default function Experience() {
           <div className="mb-10">
             <div className="flex flex-row items-center edu-title">
               <i className="fa-solid fa-circle me-10 fc-primary"></i>
-              <h1 className="text-xl fc-accent">JE310 SOLUTION </h1>
+              <h1 className="text-xl fc-accent flex items-center gap-4">
+                JE310 SOLUTION{" "}
+                <small className="text-sm fc-gray">
+                  ( May 2023 - Feb 2024 )
+                </small>
+              </h1>
             </div>
 
             <ul className="list-disc ps-20 pt-5 edu-details">
@@ -73,7 +78,29 @@ export default function Experience() {
           <div className="mb-10">
             <div className="flex flex-row items-center edu-title">
               <i className="fa-solid fa-circle me-10 fc-primary"></i>
-              <h1 className="text-xl fc-accent">FREELANCE </h1>
+              <h1 className="text-xl fc-accent flex items-center gap-4">
+                FREELANCE{" "}
+                <small className="text-sm fc-gray">
+                  ( Feb 2024 - current )
+                </small>
+              </h1>
+            </div>
+
+            <ul className="list-disc ps-20 pt-5 edu-details">
+              <small className="text-sm fc-gray">responsibilities:</small>
+              <li>Full Stack Web Developer</li>
+            </ul>
+          </div>
+
+          <div className="mb-10">
+            <div className="flex flex-row items-center edu-title">
+              <i className="fa-solid fa-circle me-10 fc-primary"></i>
+              <h1 className="text-xl fc-accent flex items-center gap-4">
+                PTO Media{" "}
+                <small className="text-sm fc-gray">
+                  ( April 2024 - current )
+                </small>
+              </h1>
             </div>
 
             <ul className="list-disc ps-20 pt-5 edu-details">

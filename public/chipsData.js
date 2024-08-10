@@ -18,6 +18,12 @@ const frontend = [
     border: "FFFFFF",
   },
   {
+    title: "Nuxt JS",
+    image: "nuxt.png",
+    bgcolor: "rgba(0, 213, 126, 0.5)", // 50% opacity
+    border: "00d57e",
+  },
+  {
     title: "Tailwind",
     image: "tailwind.png",
     bgcolor: "rgba(38, 169, 189, 0.5)", // 50% opacity

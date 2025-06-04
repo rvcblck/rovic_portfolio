@@ -1,8 +1,21 @@
+"use client";
+
 import Image from "next/image";
 import "./style.scss";
 import { AOSInit } from "@/aos";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
+  const [yearsOfExperience, setYearsOfExperience] = useState(0);
+
+  useEffect(() => {
+    // Assuming you started in June 2023
+    const startDate = new Date("2023-06-01");
+    const currentDate = new Date();
+    const experience = currentDate.getFullYear() - startDate.getFullYear();
+    setYearsOfExperience(experience);
+  }, []);
+
   return (
     <section className="w-100">
       <div className="hero-img-container w-100 animate__animated animate__fadeInDown mb-10">
@@ -30,7 +43,7 @@ export default function Hero() {
       <div className="hero-cards flex flex-row justify-around animate__animated animate__fadeInDown">
         <div className="cardss flex flex-col items-center justify-center sm:p-4 md:p-8 rounded-md shadow-2xl xl:basis-1/5 lg:basis-1/5 md:basis-1/4">
           <h1 className="sm:text-2xl md:text-4xl fc-primary font-semibold mb-2 ">
-            +1
+            + {yearsOfExperience}
           </h1>
           <span className="card-span fc-primary text-center">
             yr/s of experience

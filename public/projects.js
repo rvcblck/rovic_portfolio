@@ -117,6 +117,31 @@ const projectList = [
       },
     ],
   },
+  {
+    id: 5,
+    title: "Secure Life Plans",
+    description:
+      "Created a landing page to capture qualified life insurance leads for agents.",
+    images: [
+      {
+        img: "sl-1.png",
+      },
+      {
+        img: "sl-2.png",
+      },
+      {
+        img: "sl-3.png",
+      },
+    ],
+    language: [
+      {
+        title: "Nuxt JS",
+        image: "nuxt.png",
+        bgcolor: "rgba(0, 213, 126, 0.5)", // 50% opacity
+        border: "00d57e",
+      },
+    ],
+  },
 ];
 
 export default projectList;

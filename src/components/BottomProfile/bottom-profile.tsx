@@ -59,7 +59,7 @@ export default function BottomProfile() {
 
         <h1 className="fc-primary text-3xl font-semibold">Rovic De Leon</h1>
         <h3 className="text-base fc-gray mb-8">FULL STACK WEB DEVELOPER</h3>
-        <a href="/DeLeon,Rovic_Resume.pdf" target="_blank" download>
+        <a href="/rovic_portfolio/DeLeon,Rovic_Resume.pdf" target="_blank" download>
           <Button variant="contained" color="secondary" >
             <i className="fa-solid fa-arrow-down me-4"></i> Resume
           </Button>

@@ -142,6 +142,87 @@ const projectList = [
       },
     ],
   },
+  {
+    id: 6,
+    title: "Red Fiber",
+    description:
+      "Created landing pages for Red Fiber to promote their internet services",
+    images: [
+      {
+        img: "red-1.png",
+      },
+      {
+        img: "red-2.png",
+      },
+      {
+        img: "red-3.png",
+      },
+    ],
+    language: [
+      {
+        title: "ServiceNow",
+        image: "servicenow.png",
+        bgcolor: "rgba(3,44,64,0.5)", // 50% opacity
+        border: "62D84E",
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: "Radius Telecoms Website",
+    description:
+      "Created landing pages for Radius Telecoms to promote their services",
+    images: [
+      {
+        img: "radius-1.png",
+      },
+      {
+        img: "radius-2.png",
+      },
+      {
+        img: "radius-3.png",
+      },
+    ],
+    language: [
+      {
+        title: "Salesforce",
+        image: "salesforce.png",
+        bgcolor: "rgba(22,151,208,0.5)", // 50% opacity
+        border: "00A2E1",
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: "Irishnews Archive",
+    description:
+      "Develop Backend system for managing articles, subscriptions, and customer accounts.",
+    images: [
+      {
+        img: "ina-1.png",
+      },
+      {
+        img: "ina-2.png",
+      },
+      {
+        img: "ina-3.png",
+      },
+    ],
+    language: [
+      {
+        title: "CodeIgniter 4",
+        image: "codeigniter.png",
+        bgcolor: "rgba(238,67,35,0.5)", // 50% opacity
+        border: "EE4323",
+      },
+      {
+        title: "Vue 3",
+        image: "vue.png",
+        bgcolor: "rgba(42,56,71,0.5)", // 50% opacity
+        border: "3FB984",
+      },
+    ],
+  },
 ];
 
 export default projectList;

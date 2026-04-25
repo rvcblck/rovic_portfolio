@@ -1,5 +1,7 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const links = [
   { label: "Work", href: "/#work" },
@@ -10,7 +12,22 @@ const links = [
 ];
 
 export const Nav = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
   const homeHash = (hash: string) => `${import.meta.env.BASE_URL}${hash}`;
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname, location.hash]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsOpen(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   return (
     <motion.header
@@ -58,7 +75,67 @@ export const Nav = () => {
           <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground animate-pulse" />
           Available
         </a>
+
+        <button
+          type="button"
+          onClick={() => setIsOpen((open) => !open)}
+          aria-label={isOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
+          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-sm border border-border bg-card text-foreground transition-colors hover:border-primary hover:text-primary"
+        >
+          {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+        </button>
       </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.nav
+            id="mobile-navigation"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden overflow-hidden border-t border-border bg-background/95 backdrop-blur-md"
+          >
+            <div className="mx-auto max-w-[1400px] px-6 py-4">
+              <div className="grid gap-2">
+                {links.map((l) =>
+                  l.href.startsWith("/#") ? (
+                    <a
+                      key={l.href}
+                      href={homeHash(l.href.slice(1))}
+                      onClick={() => setIsOpen(false)}
+                      className="mono flex items-center justify-between rounded-sm border border-border bg-card px-4 py-3 text-xs uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
+                    >
+                      {l.label}
+                      <ArrowUpRight className="h-3.5 w-3.5 text-primary" />
+                    </a>
+                  ) : (
+                    <Link
+                      key={l.href}
+                      to={l.href}
+                      onClick={() => setIsOpen(false)}
+                      className="mono flex items-center justify-between rounded-sm border border-border bg-card px-4 py-3 text-xs uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
+                    >
+                      {l.label}
+                      <ArrowUpRight className="h-3.5 w-3.5 text-primary" />
+                    </Link>
+                  )
+                )}
+                <a
+                  href={homeHash("#contact")}
+                  onClick={() => setIsOpen(false)}
+                  className="mono mt-2 inline-flex items-center justify-center gap-2 rounded-sm bg-primary px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground transition-colors hover:bg-primary/90"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary-foreground animate-pulse" />
+                  Available for work
+                </a>
+              </div>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };

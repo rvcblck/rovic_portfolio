@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, ArrowLeft } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, Maximize2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Nav } from "@/components/portfolio/Nav";
 import { Footer } from "@/components/portfolio/Footer";
-import { projects } from "@/data/projects";
+import { Lightbox } from "@/components/portfolio/Lightbox";
+import { projects, resolveImage } from "@/data/projects";
 
 const statusColor: Record<string, string> = {
   Live: "text-primary",
@@ -14,6 +15,8 @@ const statusColor: Record<string, string> = {
 };
 
 const Projects = () => {
+  const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null);
+
   useEffect(() => {
     document.title = "Projects — Rovic De Leon";
     const meta = document.querySelector('meta[name="description"]');
@@ -21,6 +24,9 @@ const Projects = () => {
       "Selected projects by Rovic De Leon — full-stack web developer. Enterprise tooling, AI automations, landing pages, and freelance web apps built with React, Vue, Angular, Laravel, Salesforce & ServiceNow.";
     if (meta) meta.setAttribute("content", content);
   }, []);
+
+  const openLightbox = (images: string[], index: number) =>
+    setLightbox({ images, index });
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -67,98 +73,136 @@ const Projects = () => {
 
       {/* Projects list */}
       <section className="pb-24 lg:pb-40">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 space-y-8">
-          {projects.map((p, i) => (
-            <motion.article
-              key={p.slug}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: i * 0.05 }}
-              className="surface rounded-sm overflow-hidden group hover:border-primary/40 border border-border transition-colors"
-            >
-              <div className="grid grid-cols-12 gap-0">
-                {/* Left meta column */}
-                <div className="col-span-12 lg:col-span-3 p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-border bg-card/50">
-                  <p className="mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    No. {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <p className="mono text-sm mt-6 mb-1 text-muted-foreground">Year</p>
-                  <p className="display-text text-2xl">{p.year}</p>
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 space-y-10">
+          {projects.map((p, i) => {
+            const resolvedImages = (p.images ?? [])
+              .map((img) => resolveImage(img))
+              .filter((url): url is string => Boolean(url));
 
-                  <p className="mono text-sm mt-6 mb-1 text-muted-foreground">Role</p>
-                  <p className="text-base">{p.role}</p>
-
-                  {p.client && (
-                    <>
-                      <p className="mono text-sm mt-6 mb-1 text-muted-foreground">Client</p>
-                      <p className="text-base">{p.client}</p>
-                    </>
-                  )}
-
-                  <p className="mono text-sm mt-6 mb-1 text-muted-foreground">Status</p>
-                  <p className={`mono text-sm uppercase tracking-wider flex items-center gap-2 ${statusColor[p.status]}`}>
-                    <span className="w-1.5 h-1.5 rounded-full bg-current" />
-                    {p.status}
-                  </p>
-                </div>
-
-                {/* Right content column */}
-                <div className="col-span-12 lg:col-span-9 p-8 lg:p-10">
-                  <div className="flex items-start justify-between gap-6 mb-4">
-                    <div>
-                      <h2 className="display-text text-3xl lg:text-5xl group-hover:text-primary transition-colors">
-                        {p.title}
-                      </h2>
-                      <p className="mt-3 text-lg text-muted-foreground">{p.tagline}</p>
-                    </div>
-                    {p.links?.[0] && (
-                      <a
-                        href={p.links[0].href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="shrink-0 inline-flex items-center gap-2 mono text-xs uppercase tracking-wider px-4 py-2 border border-border hover:border-primary hover:text-primary rounded-sm transition-colors"
-                      >
-                        {p.links[0].label}
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                  </div>
-
-                  <p className="text-base leading-relaxed mt-6 max-w-3xl">
-                    {p.description}
-                  </p>
-
-                  {/* Highlights */}
-                  <div className="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-2">
-                    {p.highlights.map((h) => (
-                      <div key={h} className="flex gap-3 text-sm text-muted-foreground">
-                        <span className="text-primary mono shrink-0">→</span>
-                        <span>{h}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Stack */}
-                  <div className="mt-8 pt-6 border-t border-border">
-                    <p className="mono text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">
-                      Tech Stack
+            return (
+              <motion.article
+                key={p.slug}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, delay: i * 0.05 }}
+                className="surface rounded-sm overflow-hidden group hover:border-primary/40 border border-border transition-colors"
+              >
+                <div className="grid grid-cols-12 gap-0">
+                  {/* Left meta column */}
+                  <div className="col-span-12 lg:col-span-3 p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-border bg-card/50">
+                    <p className="mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                      No. {String(i + 1).padStart(2, "0")}
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {p.stack.map((s) => (
-                        <span
-                          key={s}
-                          className="mono text-xs uppercase tracking-wider px-3 py-1.5 bg-secondary border border-border hover:border-primary hover:text-primary transition-colors rounded-sm"
+                    <p className="mono text-sm mt-6 mb-1 text-muted-foreground">Year</p>
+                    <p className="display-text text-2xl">{p.year}</p>
+
+                    <p className="mono text-sm mt-6 mb-1 text-muted-foreground">Role</p>
+                    <p className="text-base">{p.role}</p>
+
+                    {p.client && (
+                      <>
+                        <p className="mono text-sm mt-6 mb-1 text-muted-foreground">Client</p>
+                        <p className="text-base">{p.client}</p>
+                      </>
+                    )}
+
+                    <p className="mono text-sm mt-6 mb-1 text-muted-foreground">Status</p>
+                    <p
+                      className={`mono text-sm uppercase tracking-wider flex items-center gap-2 ${statusColor[p.status]}`}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                      {p.status}
+                    </p>
+                  </div>
+
+                  {/* Right content column */}
+                  <div className="col-span-12 lg:col-span-9 p-8 lg:p-10">
+                    <div className="flex items-start justify-between gap-6 mb-4 flex-wrap">
+                      <div>
+                        <h2 className="display-text text-3xl lg:text-5xl group-hover:text-primary transition-colors">
+                          {p.title}
+                        </h2>
+                        <p className="mt-3 text-lg text-muted-foreground">{p.tagline}</p>
+                      </div>
+                      {p.links?.[0] && (
+                        <a
+                          href={p.links[0].href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="shrink-0 inline-flex items-center gap-2 mono text-xs uppercase tracking-wider px-4 py-2 border border-border hover:border-primary hover:text-primary rounded-sm transition-colors"
                         >
-                          {s}
-                        </span>
+                          {p.links[0].label}
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+                    </div>
+
+                    {/* Screenshots gallery */}
+                    {resolvedImages.length > 0 && (
+                      <div className="mt-6 grid gap-3" style={{
+                        gridTemplateColumns: resolvedImages.length === 1
+                          ? "1fr"
+                          : "repeat(auto-fit, minmax(240px, 1fr))",
+                      }}>
+                        {resolvedImages.map((src, idx) => (
+                          <button
+                            key={src}
+                            onClick={() => openLightbox(resolvedImages, idx)}
+                            className="group/img relative overflow-hidden rounded-sm border border-border hover:border-primary transition-colors aspect-[16/10] bg-secondary"
+                          >
+                            <img
+                              src={src}
+                              alt={`${p.title} screenshot ${idx + 1}`}
+                              loading="lazy"
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-background/0 group-hover/img:bg-background/40 transition-colors flex items-center justify-center">
+                              <div className="opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center gap-2 mono text-xs uppercase tracking-wider px-3 py-2 bg-primary text-primary-foreground rounded-sm">
+                                <Maximize2 className="w-3.5 h-3.5" />
+                                View
+                              </div>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+
+                    <p className="text-base leading-relaxed mt-6 max-w-3xl">
+                      {p.description}
+                    </p>
+
+                    {/* Highlights */}
+                    <div className="mt-6 grid md:grid-cols-2 gap-x-8 gap-y-2">
+                      {p.highlights.map((h) => (
+                        <div key={h} className="flex gap-3 text-sm text-muted-foreground">
+                          <span className="text-primary mono shrink-0">→</span>
+                          <span>{h}</span>
+                        </div>
                       ))}
                     </div>
+
+                    {/* Stack */}
+                    <div className="mt-8 pt-6 border-t border-border">
+                      <p className="mono text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">
+                        Tech Stack
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {p.stack.map((s) => (
+                          <span
+                            key={s}
+                            className="mono text-xs uppercase tracking-wider px-3 py-1.5 bg-secondary border border-border hover:border-primary hover:text-primary transition-colors rounded-sm"
+                          >
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.article>
-          ))}
+              </motion.article>
+            );
+          })}
         </div>
       </section>
 
@@ -184,6 +228,24 @@ const Projects = () => {
       </section>
 
       <Footer />
+
+      {lightbox && (
+        <Lightbox
+          images={lightbox.images}
+          index={lightbox.index}
+          onClose={() => setLightbox(null)}
+          onPrev={() =>
+            setLightbox((s) =>
+              s ? { ...s, index: (s.index - 1 + s.images.length) % s.images.length } : s
+            )
+          }
+          onNext={() =>
+            setLightbox((s) =>
+              s ? { ...s, index: (s.index + 1) % s.images.length } : s
+            )
+          }
+        />
+      )}
     </main>
   );
 };

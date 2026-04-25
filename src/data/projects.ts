@@ -1,3 +1,5 @@
+import projectsData from "./projects.json";
+
 export type Project = {
   slug: string;
   title: string;
@@ -9,95 +11,24 @@ export type Project = {
   status: "Live" | "In Development" | "Archived" | "Internal";
   stack: string[];
   highlights: string[];
+  images?: string[];
   links?: { label: string; href: string }[];
-  accent?: string;
 };
 
-export const projects: Project[] = [
-  {
-    slug: "red-fiber",
-    title: "Red Fiber Landing Pages",
-    tagline: "High-traffic acquisition pages for PLDT's flagship fiber product.",
-    description:
-      "Designed and shipped postpaid and prepaid landing pages on ServiceNow for PLDT's Red Fiber product line. Focused on conversion-oriented layouts, fast load times on mobile, and tight integration with backend lead-capture flows.",
-    role: "Frontend Engineer",
-    year: "2025",
-    client: "PLDT × Radius Telecoms",
-    status: "Live",
-    stack: ["ServiceNow", "HTML", "SCSS", "JavaScript", "REST APIs"],
-    highlights: [
-      "Built reusable component patterns for future PLDT campaigns",
-      "Optimized Largest Contentful Paint for mobile-first traffic",
-      "Integrated with internal lead-capture and CRM systems",
-    ],
-  },
-  {
-    slug: "enterprise-tools",
-    title: "Enterprise Tools & AI Automations",
-    tagline: "Internal Salesforce tooling that streamlines cross-functional ops.",
-    description:
-      "Engineered Salesforce-native tools and AI-powered automations that replace manual workflows for ops, sales, and engineering teams at Radius Telecoms.",
-    role: "Software Engineer",
-    year: "2025",
-    client: "Radius Telecoms",
-    status: "Internal",
-    stack: ["Salesforce", "Apex", "LWC", "AI / LLMs", "REST APIs"],
-    highlights: [
-      "Cut repetitive task time by automating multi-step workflows",
-      "Integrated LLMs for smart classification and drafting",
-      "Designed admin-friendly config surface for non-engineers",
-    ],
-  },
-  {
-    slug: "freelance-suite",
-    title: "Freelance Web App Suite",
-    tagline: "Multiple production apps shipped end-to-end for global clients.",
-    description:
-      "Led 10+ freelance engagements from concept to deployment. Each project required selecting the right stack, gathering requirements, and shipping with a focus on performance, security, and long-term maintainability.",
-    role: "Full-Stack Developer",
-    year: "2024 — 2025",
-    client: "Independent Clients",
-    status: "Live",
-    stack: ["Angular", "React", "Vue.js", "Laravel", "MySQL", "Tailwind"],
-    highlights: [
-      "Owned the full lifecycle: discovery → design → ship → support",
-      "Optimized legacy apps for measurable performance gains",
-      "Maintained 100% on-time delivery across every engagement",
-    ],
-  },
-  {
-    slug: "je310-platforms",
-    title: "Dynamic Client Platforms",
-    tagline: "Modern web platforms with hardened databases for enterprise clients.",
-    description:
-      "Built dynamic web applications for enterprise clients at JE-310 Solution Inc., using Next.js, Vue, and Laravel. Tuned database schemas and queries for reliability under real-world load.",
-    role: "Full-Stack Web Developer",
-    year: "2023 — 2024",
-    client: "JE-310 Solution Inc.",
-    status: "Live",
-    stack: ["Next.js", "Vue.js", "Laravel", "MySQL", "SQL Server"],
-    highlights: [
-      "Delivered solutions that consistently exceeded client requirements",
-      "Optimized database reliability and query performance",
-      "Collaborated tightly with PMs and designers on tight timelines",
-    ],
-  },
-  {
-    slug: "rovic-portfolio",
-    title: "rvcblck.github.io — Personal Portfolio",
-    tagline: "First iteration of my personal portfolio site.",
-    description:
-      "My original portfolio built and deployed on GitHub Pages — a minimalist showcase of my projects, skills, and contact details.",
-    role: "Designer & Developer",
-    year: "2024",
-    status: "Live",
-    stack: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
-    highlights: [
-      "100% custom design and animation",
-      "Deployed via GitHub Pages with zero infra overhead",
-    ],
-    links: [
-      { label: "Visit", href: "https://rvcblck.github.io/rovic_portfolio/" },
-    ],
-  },
-];
+// Auto-import every image inside src/assets/projects/ so the JSON file
+// only needs to reference the filename — no hand-written imports required.
+const imageModules = import.meta.glob("@/assets/projects/*.{jpg,jpeg,png,webp,avif}", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+const imageMap: Record<string, string> = {};
+for (const [path, url] of Object.entries(imageModules)) {
+  const filename = path.split("/").pop()!;
+  imageMap[filename] = url;
+}
+
+export const resolveImage = (filename: string): string | undefined =>
+  imageMap[filename];
+
+export const projects = projectsData as Project[];

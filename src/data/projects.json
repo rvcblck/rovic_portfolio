@@ -1,20 +1,118 @@
 [
   {
+    "slug": "allsoftwaretools",
+    "title": "AllSoftwareTools",
+    "tagline": "A searchable software directory for comparing tools by category, features, and industry.",
+    "description": "Built a software discovery and comparison platform with indexed categories, feature breakdowns, tool profiles, and SEO-friendly guide pages. The product helps teams compare options quickly and avoid second-guessing their software stack.",
+    "role": "Full-Stack Developer",
+    "year": "2026",
+    "client": "Product Build",
+    "status": "Live",
+    "stack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Drizzle ORM", "Neon"],
+    "highlights": [
+      "Created category and comparison pages for software discovery workflows",
+      "Built indexed data models for tools, features, industries, and relationships",
+      "Implemented SEO-ready public pages with fast browsing and search entry points"
+    ],
+    "images": ["allsoftwaretools-1.png", "allsoftwaretools-2.png", "allsoftwaretools-3.png"],
+    "links": [
+      { "label": "Visit", "href": "https://www.allsoftwaretools.com/" }
+    ]
+  },
+  {
+    "slug": "radius-reimbursement-portal",
+    "title": "Radius Reimbursement Portal",
+    "tagline": "Internal finance approval queue for reimbursement, liquidation, and disbursement workflows.",
+    "description": "Built a Laravel and Vue finance portal for Radius approval teams, covering request queues, AP verifier review, status tracking, finance dashboards, exports, and request detail workflows.",
+    "role": "Full-Stack Developer",
+    "year": "2026",
+    "client": "Radius Telecoms",
+    "status": "Internal",
+    "stack": ["Laravel", "Vue 3", "Vuetify", "Pinia", "MySQL", "Microsoft SSO"],
+    "highlights": [
+      "Implemented finance dashboards for approval queue visibility and processing insights",
+      "Built request review screens for reimbursement, cash advance, liquidation, and per diem flows",
+      "Added role-based queues, status tracking, exports, and Microsoft authentication"
+    ],
+    "images": ["reimbursement-radius-1.png", "reimbursement-radius-2.png", "reimbursement-radius-3.png"],
+    "links": [
+      { "label": "Portal", "href": "https://reimbursement.radius.net.ph/" }
+    ]
+  },
+  {
+    "slug": "lummexa",
+    "title": "Lummexa",
+    "tagline": "Clinic workspace for patient records, treatments, sessions, packages, reminders, and reporting.",
+    "description": "Built a tenant-safe clinic management platform for aesthetic and dermatology clinics, combining patient records, treatment tracking, staff workflows, session logs, package management, exports, and launch-ready marketing pages.",
+    "role": "Full-Stack Developer",
+    "year": "2026",
+    "client": "Product Build",
+    "status": "In Development",
+    "stack": ["Laravel", "Inertia", "React", "Tailwind CSS", "MUI", "Recharts"],
+    "highlights": [
+      "Designed a clinic-focused SaaS workspace with patient, staff, treatment, and package modules",
+      "Built marketing, pricing, authentication, and dashboard experiences for launch",
+      "Added audit-ready workflows, CSV exports, email reminders, and subscription plan surfaces"
+    ],
+    "images": ["lummexa-1.png"],
+    "links": [
+      { "label": "Visit", "href": "https://www.lummexa.com/" }
+    ]
+  },
+  {
+    "slug": "leadsaffinity",
+    "title": "LeadsAffinity",
+    "tagline": "Exclusive insurance lead delivery platform for licensed agents.",
+    "description": "Built a lead delivery platform for licensed insurance agents, focused on campaign-matched lead routing, phone verification checks, fixed product pricing, order visibility, and admin reporting workflows.",
+    "role": "Full-Stack Developer",
+    "year": "2026",
+    "client": "Product Build",
+    "status": "Live",
+    "stack": ["Laravel", "React", "Tailwind CSS", "Reporting", "Lead Routing"],
+    "highlights": [
+      "Created a public product site for agent onboarding and product education",
+      "Built delivery and reporting workflows for lead intake, assignment, and revenue tracking",
+      "Designed admin views for lead health, recipients, alerts, and campaign operations"
+    ],
+    "images": ["leadsaffinity-1.png"],
+    "links": [
+      { "label": "Visit", "href": "https://leadsaffinity.com/" }
+    ]
+  },
+  {
     "slug": "red-fiber",
     "title": "Red Fiber Landing Pages",
     "tagline": "High-traffic acquisition pages for PLDT's flagship fiber product.",
     "description": "Designed and shipped postpaid and prepaid landing pages on ServiceNow for PLDT's Red Fiber product line. Focused on conversion-oriented layouts, fast load times on mobile, and tight integration with backend lead-capture flows.",
     "role": "Frontend Engineer",
     "year": "2025",
-    "client": "PLDT × Radius Telecoms",
+    "client": "PLDT x Radius Telecoms",
     "status": "Live",
     "stack": ["ServiceNow", "HTML", "SCSS", "JavaScript", "REST APIs"],
     "highlights": [
       "Built reusable component patterns for future PLDT campaigns",
-      "Optimized Largest Contentful Paint for mobile-first traffic",
-      "Integrated with internal lead-capture and CRM systems"
+      "Optimized landing page sections for mobile-first traffic",
+      "Integrated the pages with internal lead-capture and CRM flows"
     ],
-    "images": ["red-fiber-1.jpg"],
+    "images": ["red-1.png", "red-2.png", "red-3.png"],
+    "links": []
+  },
+  {
+    "slug": "radius-telecoms-website",
+    "title": "Radius Telecoms Website",
+    "tagline": "Salesforce-powered pages for Radius Telecoms' public web presence.",
+    "description": "Created website and landing page experiences for Radius Telecoms to promote services, present key offerings, and support enterprise sales and marketing campaigns.",
+    "role": "Software Engineer",
+    "year": "2025",
+    "client": "Radius Telecoms",
+    "status": "Live",
+    "stack": ["Salesforce", "Frontend", "JavaScript", "SCSS"],
+    "highlights": [
+      "Built responsive landing pages aligned with campaign requirements",
+      "Implemented reusable Salesforce-friendly UI sections",
+      "Supported marketing workflows with maintainable page structures"
+    ],
+    "images": ["radius-1.png", "radius-2.png", "radius-3.png"],
     "links": []
   },
   {
@@ -30,64 +128,117 @@
     "highlights": [
       "Cut repetitive task time by automating multi-step workflows",
       "Integrated LLMs for smart classification and drafting",
-      "Designed admin-friendly config surface for non-engineers"
+      "Designed admin-friendly config surfaces for non-engineers"
     ],
     "images": ["enterprise-tools-1.jpg"],
     "links": []
   },
   {
-    "slug": "freelance-suite",
-    "title": "Freelance Web App Suite",
-    "tagline": "Multiple production apps shipped end-to-end for global clients.",
-    "description": "Led 10+ freelance engagements from concept to deployment. Each project required selecting the right stack, gathering requirements, and shipping with a focus on performance, security, and long-term maintainability.",
+    "slug": "irishnews-archive",
+    "title": "Irishnews Archive",
+    "tagline": "Backend and customer tooling for archive articles and subscriptions.",
+    "description": "Developed backend functionality for managing articles, customer accounts, and subscription workflows, with a Vue-powered interface supporting archive operations.",
     "role": "Full-Stack Developer",
-    "year": "2024 — 2025",
-    "client": "Independent Clients",
-    "status": "Live",
-    "stack": ["Angular", "React", "Vue.js", "Laravel", "MySQL", "Tailwind"],
-    "highlights": [
-      "Owned the full lifecycle: discovery → design → ship → support",
-      "Optimized legacy apps for measurable performance gains",
-      "Maintained 100% on-time delivery across every engagement"
-    ],
-    "images": ["freelance-1.jpg"],
-    "links": []
-  },
-  {
-    "slug": "je310-platforms",
-    "title": "Dynamic Client Platforms",
-    "tagline": "Modern web platforms with hardened databases for enterprise clients.",
-    "description": "Built dynamic web applications for enterprise clients at JE-310 Solution Inc., using Next.js, Vue, and Laravel. Tuned database schemas and queries for reliability under real-world load.",
-    "role": "Full-Stack Web Developer",
-    "year": "2023 — 2024",
-    "client": "JE-310 Solution Inc.",
-    "status": "Live",
-    "stack": ["Next.js", "Vue.js", "Laravel", "MySQL", "SQL Server"],
-    "highlights": [
-      "Delivered solutions that consistently exceeded client requirements",
-      "Optimized database reliability and query performance",
-      "Collaborated tightly with PMs and designers on tight timelines"
-    ],
-    "images": ["je310-1.jpg"],
-    "links": []
-  },
-  {
-    "slug": "rovic-portfolio",
-    "title": "rvcblck.github.io — Personal Portfolio",
-    "tagline": "First iteration of my personal portfolio site.",
-    "description": "My original portfolio built and deployed on GitHub Pages — a minimalist showcase of my projects, skills, and contact details.",
-    "role": "Designer & Developer",
     "year": "2024",
-    "client": "Personal",
-    "status": "Live",
-    "stack": ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+    "client": "Independent Client",
+    "status": "Internal",
+    "stack": ["CodeIgniter 4", "Vue 3", "PHP", "MySQL"],
     "highlights": [
-      "100% custom design and animation",
-      "Deployed via GitHub Pages with zero infra overhead"
+      "Built article management flows for archive content",
+      "Implemented subscription and customer account tooling",
+      "Connected backend administration with a Vue interface"
     ],
-    "images": ["portfolio-1.jpg"],
-    "links": [
-      { "label": "Visit", "href": "https://rvcblck.github.io/rovic_portfolio/" }
-    ]
+    "images": ["ina-1.png", "ina-2.png", "ina-3.png"],
+    "links": []
+  },
+  {
+    "slug": "secure-life-plans",
+    "title": "Secure Life Plans",
+    "tagline": "Lead-generation landing page for life insurance agents.",
+    "description": "Created a focused landing page designed to capture qualified life insurance leads and route prospects toward agent follow-up.",
+    "role": "Frontend Developer",
+    "year": "2024",
+    "client": "Independent Client",
+    "status": "Archived",
+    "stack": ["Nuxt JS", "Vue", "JavaScript", "Responsive UI"],
+    "highlights": [
+      "Designed a clear conversion path for lead capture",
+      "Built a responsive landing page for mobile and desktop visitors",
+      "Organized sections around trust, benefits, and inquiry intent"
+    ],
+    "images": ["sl-1.png", "sl-2.png", "sl-3.png"],
+    "links": []
+  },
+  {
+    "slug": "human-resource-information-system",
+    "title": "Human Resource Information System",
+    "tagline": "HRIS platform for leave, attendance, and staff workflow management.",
+    "description": "Created an HRIS website for managing leave requests, attendance, and routine HR tasks, helping teams track employee activity in one operational system.",
+    "role": "Full-Stack Developer",
+    "year": "2024",
+    "client": "Academic / Internal",
+    "status": "Archived",
+    "stack": ["Laravel", "Angular", "PHP", "MySQL"],
+    "highlights": [
+      "Built leave and attendance management workflows",
+      "Created administrative screens for HR operations",
+      "Connected Angular interfaces to Laravel backend services"
+    ],
+    "images": ["hris1.png", "hris2.png", "hris3.png"],
+    "links": []
+  },
+  {
+    "slug": "extension-office-management-system",
+    "title": "Extension Office Management System",
+    "tagline": "Coordination platform for school outreach programs.",
+    "description": "Crafted an Extension Office Management System for school outreach programs, improving coordination, resource tracking, and program administration.",
+    "role": "Full-Stack Developer",
+    "year": "2024",
+    "client": "Academic / Internal",
+    "status": "Archived",
+    "stack": ["Laravel", "Angular", "PHP", "MySQL"],
+    "highlights": [
+      "Built program and resource management screens",
+      "Structured records around outreach coordination needs",
+      "Delivered a maintainable Laravel and Angular implementation"
+    ],
+    "images": ["exoms-1.png", "exoms-3.png", "exoms-5.png"],
+    "links": []
+  },
+  {
+    "slug": "ordering-system",
+    "title": "Ordering System",
+    "tagline": "Order-management app for smoother customer and admin workflows.",
+    "description": "Developed an ordering system for managing customer orders, improving operational efficiency and helping administrators track order activity.",
+    "role": "Full-Stack Developer",
+    "year": "2024",
+    "client": "Academic / Internal",
+    "status": "Archived",
+    "stack": ["Laravel", "Angular", "PHP", "MySQL"],
+    "highlights": [
+      "Implemented order creation and tracking flows",
+      "Built admin-facing views for order management",
+      "Connected frontend interactions to Laravel backend logic"
+    ],
+    "images": ["delivery1.png", "delivery2.png", "delivery3.png"],
+    "links": []
+  },
+  {
+    "slug": "ienter",
+    "title": "iEnter",
+    "tagline": "QR code access system tailored for school environments.",
+    "description": "Designed iEnter, a QR code system for schools that simplifies access management and supports basic security and monitoring workflows.",
+    "role": "Full-Stack Developer",
+    "year": "2024",
+    "client": "Academic / Internal",
+    "status": "Archived",
+    "stack": ["Laravel", "PHP", "MySQL", "QR Code"],
+    "highlights": [
+      "Implemented QR-based access interactions",
+      "Designed screens around school entry workflows",
+      "Built backend records for monitoring and administration"
+    ],
+    "images": ["ienter-1.png", "ienter-3.png", "ienter-5.png"],
+    "links": []
   }
 ]

@@ -10,6 +10,8 @@ const links = [
 ];
 
 export const Nav = () => {
+  const homeHash = (hash: string) => `${import.meta.env.BASE_URL}${hash}`;
+
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
@@ -32,7 +34,7 @@ export const Nav = () => {
             l.href.startsWith("/#") ? (
               <a
                 key={l.href}
-                href={l.href}
+                href={homeHash(l.href.slice(1))}
                 className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors mono uppercase tracking-wider"
               >
                 {l.label}
@@ -50,7 +52,7 @@ export const Nav = () => {
         </nav>
 
         <a
-          href="/#contact"
+          href={homeHash("#contact")}
           className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground text-sm font-semibold mono uppercase tracking-wider hover:bg-primary/90 transition-colors rounded-sm"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground animate-pulse" />
